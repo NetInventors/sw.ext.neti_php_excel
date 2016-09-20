@@ -30,13 +30,6 @@ done
 # Step into the temporary build folder
 cd ${TEMP_DIR}
 
-# Create md5.json file including the md5 checksum of every file in the package
-echo "<?php return [" > md5checksum.php
-for i in $(find -path ./.git -prune -o -name build.sh -prune -o -type f -printf '%P\n'); do
-    echo "'$i' => '$(md5sum $i | awk '{ print $1 }')'," >> md5checksum.php
-done;
-echo "];" >> md5checksum.php
-
 # Move one level up in folder structure
 cd ..
 
