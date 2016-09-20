@@ -1,0 +1,15 @@
+{
+    "name": "net-inventors/neti-php-excel",
+    "description": "Shopware Library-Plugin for phpExcel",
+    "type": "project",
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Net Inventors GmbH",
+            "email": "shopware@netinventors.de"
+        }
+    ]
+}
