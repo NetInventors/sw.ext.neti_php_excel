@@ -4,7 +4,7 @@ PLUGIN_NAME=$(basename ${WORKING_DIR})
 VERSION=$(php -r "echo preg_replace('/.*<version>([^<]+)<\/version>.*/ims', '\\1', file_get_contents('${WORKING_DIR}/plugin.xml'), 1);")
 TEMP_DIR='/tmp/ShopwarePlugins/'${PLUGIN_NAME}
 CURRENT_DIR=$(pwd)
-EXCLUDES="sftp-config.json nbproject .idea"
+EXCLUDES="sftp-config.json nbproject .idea composer.json composer.lock vendor/autoload.php vendor/composer"
 
 # Remove existing package file
 if [ -f "${CURRENT_DIR}/${PLUGIN_NAME}-${VERSION}.zip" ]; then
