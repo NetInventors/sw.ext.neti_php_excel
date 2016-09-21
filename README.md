@@ -21,6 +21,9 @@ We recommend installing the zip package either from [here](https://github.com/Ne
 
 **If you want to checkout from git be sure to name the directory "NetiPhpExcel" and run `composer install` before using the plugin.**
 
+## How to use / Example
+```$this->container->get('neti_php_excel.php_excel')->getPhpExcel();```
+
 ## Configuration:
 * Just install
 
