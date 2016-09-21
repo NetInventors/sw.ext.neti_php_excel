@@ -5,7 +5,7 @@
 
 * PluginKey: NetiPhpExcel
 * ProjectId: [000000-012-459](https://redmine.netinventors.de/projects/000000-012-459/)
-[Plugin in shopware store](http://store.shopware.com/detail/index/sArticle/161497)
+* [Plugin in shopware store](http://store.shopware.com/detail/index/sArticle/161497)
 * [Plugin landing page](http://www.shopinventors.de/shopware-plugins/phpexcel/)
 
 ## GitHub
