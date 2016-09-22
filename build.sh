@@ -4,7 +4,7 @@ PLUGIN_NAME=$(basename ${WORKING_DIR})
 VERSION=$(php -r "echo preg_replace('/.*<version>([^<]+)<\/version>.*/ims', '\\1', file_get_contents('${WORKING_DIR}/plugin.xml'), 1);")
 TEMP_DIR='/tmp/ShopwarePlugins/'${PLUGIN_NAME}
 CURRENT_DIR=$(pwd)
-EXCLUDES="sftp-config.json nbproject .idea"
+EXCLUDES="sftp-config.json nbproject .idea composer.json composer.lock vendor/autoload.php vendor/composer"
 
 # Remove existing package file
 if [ -f "${CURRENT_DIR}/${PLUGIN_NAME}-${VERSION}.zip" ]; then
@@ -29,13 +29,6 @@ done
 
 # Step into the temporary build folder
 cd ${TEMP_DIR}
-
-# Create md5.json file including the md5 checksum of every file in the package
-echo "<?php return [" > md5checksum.php
-for i in $(find -path ./.git -prune -o -name build.sh -prune -o -type f -printf '%P\n'); do
-    echo "'$i' => '$(md5sum $i | awk '{ print $1 }')'," >> md5checksum.php
-done;
-echo "];" >> md5checksum.php
 
 # Move one level up in folder structure
 cd ..
