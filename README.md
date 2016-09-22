@@ -23,7 +23,7 @@ We recommend installing the zip package either from [here](https://github.com/Ne
 
 ## How to use / Example
 ```php
-$this->container->get('neti_php_excel.php_excel')->getPhpExcel();
+$phpExcel = Shopware()->Container()->get('neti_php_excel.php_excel')->getPhpExcel();
 ```
 
 ## Configuration:
