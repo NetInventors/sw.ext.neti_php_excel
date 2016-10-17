@@ -1,12 +1,12 @@
-[![Join the chat at https://gitter.im/NetInventors/sw.ext.neti_php_excel](https://badges.gitter.im/NetInventors/sw.ext.neti_phpexcel.svg)](https://gitter.im/NetInventors/sw.ext.neti_php_excel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/NetInventors/sw.ext.neti_php_excel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/NetInventors/sw.ext.neti_php_excel/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/NetInventors/sw.ext.neti_php_excel/badges/build.png?b=master)](https://scrutinizer-ci.com/g/NetInventors/sw.ext.neti_php_excel/build-status/master)
 
 # PhpExcel
 > Simple wrapper plugin for [PHPExcel](https://github.com/PHPOffice/PHPExcel) to use in multiple plugins.
 
 * PluginKey: NetiPhpExcel
 * ProjectId: [000000-012-459](https://redmine.netinventors.de/projects/000000-012-459/)
-* [Plugin in shopware store](http://store.shopware.com/detail/index/sArticle/161497)
-* [Plugin landing page](http://www.shopinventors.de/shopware-plugins/phpexcel/)
+* [Plugin in shopware store](http://store.shopware.com/detail/index/sArticle/163296)
 
 ## GitHub
 * [GitHub Repository](https://github.com/NetInventors/sw.ext.neti_php_excel/) 
@@ -17,13 +17,13 @@
 * Shopware version >= 5.2.6
 
 ## Install 
-We recommend installing the zip package either from [here](https://github.com/NetInventors/sw.ext.neti_phpexcel/releases/latest) or the Shopware Community Store (release coming soon)
+We recommend installing the zip package either from [here](https://github.com/NetInventors/sw.ext.neti_phpexcel/releases/latest) or the [Shopware Community Store](http://store.shopware.com/detail/index/sArticle/163296)
 
 **If you want to checkout from git be sure to name the directory "NetiPhpExcel" and run `composer install` before using the plugin.**
 
 ## How to use / Example
 ```php
-$this->container->get('neti_php_excel.php_excel')->getPhpExcel();
+$phpExcel = Shopware()->Container()->get('neti_php_excel.php_excel')->getPhpExcel();
 ```
 
 ## Configuration:
