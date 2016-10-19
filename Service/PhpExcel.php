@@ -28,7 +28,7 @@ class PhpExcel
             }
 
             $this->phpExcel = new \PHPExcel();
-        } else {
+        } elseif (! $this->phpExcel instanceof \PHPExcel) {
             $this->phpExcel = false;
         }
 
@@ -74,7 +74,7 @@ class PhpExcel
         $phpExcel = $this->getPhpExcel();
         $phpExcel->setActiveSheetIndex(0);
 
-        if ($this->isAssoc($data[0])) {
+        if ($this->isAssoc(reset($data))) {
             $phpExcel->getActiveSheet()->fromArray(array_keys(reset($data)), null, 'A1');
             $phpExcel->getActiveSheet()->fromArray($data, null, 'A2');
         } else {
@@ -113,8 +113,11 @@ class PhpExcel
         $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
 
         // detect and set delimiter
-        $delimiter = $this->detectDelimiter($filename);
-        $objReader->setDelimiter($delimiter);
+        if ('CSV' === $inputFileType) {
+            $delimiter = $this->detectDelimiter($filename);
+            /** @var \PHPExcel_Reader_CSV $objReader */
+            $objReader->setDelimiter($delimiter);
+        }
         $objPHPExcel = $objReader->load($filename);
 
         $worksheet = $objPHPExcel->getActiveSheet();
@@ -127,7 +130,7 @@ class PhpExcel
             $cellIterator->setIterateOnlyExistingCells(false); // Loop all cells, even if it is not set
             foreach ($cellIterator as $cell) {
                 /** @var \PHPExcel_Cell $cell */
-                if (!is_null($cell)) {
+                if (! is_null($cell)) {
                     $row[] = $cell->getValue();
                 }
             }
