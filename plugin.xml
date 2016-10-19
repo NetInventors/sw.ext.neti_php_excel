@@ -16,7 +16,7 @@
     </changelog>
 
     <changelog version="1.0.0">
-        <changes lang="de"><![CDATA[[#24686] Refaktorierung für das neue Plugin-System, kompatibel ab Shopware 5.2.6]]></changes>
-        <changes lang="en"><![CDATA[[#24686] Refactoring for the new plugin system, compatible since Shopware 5.2.6]]></changes>
+        <changes lang="de"><![CDATA[[#24686] Erstes Release, kompatibel ab Shopware 5.2.6]]></changes>
+        <changes lang="en"><![CDATA[[#24686] First release, compatible since Shopware 5.2.6]]></changes>
     </changelog>
 </plugin>
