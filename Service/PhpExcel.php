@@ -7,9 +7,6 @@
 
 namespace NetiPhpExcel\Service;
 
-
-use Gaufrette\Exception;
-
 class PhpExcel
 {
     const FORMAT_EXCEL = 1;
