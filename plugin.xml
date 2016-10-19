@@ -5,13 +5,18 @@
     <label lang="de">PHPExcel-Bibliothek</label>
     <label lang="en">PHPExcel Library</label>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <link>http://www.shopinventors.de</link>
     <author>Net Inventors GmbH</author>
     <compatibility minVersion="5.2.6"/>
 
+    <changelog version="1.0.1">
+        <changes lang="de"><![CDATA[Nützliche Funktionen für einfache Im- und Exporte hinzugefügt]]></changes>
+        <changes lang="en"><![CDATA[Added usefull functions for simple imports and exports]]></changes>
+    </changelog>
+
     <changelog version="1.0.0">
-        <changes lang="de">Erstes Release</changes>
-        <changes lang="en">Initial release</changes>
+        <changes lang="de"><![CDATA[[#24686] Refaktorierung für das neue Plugin-System, kompatibel ab Shopware 5.2.6]]></changes>
+        <changes lang="en"><![CDATA[[#24686] Refactoring for the new plugin system, compatible since Shopware 5.2.6]]></changes>
     </changelog>
 </plugin>
