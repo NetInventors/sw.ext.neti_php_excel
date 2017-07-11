@@ -68,17 +68,27 @@ class PhpExcel
      * @param int $format
      * self::FORMAT_CSV or self::FORMAT_EXCEL
      * @param string $delimiter
+     * @param bool $strictNullComparison
+     *
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
      */
-    public function exportFunction($data, $filename, $format = self::FORMAT_CSV, $delimiter = ',')
-    {
+    public function exportFunction(
+        $data,
+        $filename,
+        $format = self::FORMAT_CSV,
+        $delimiter = ',',
+        $strictNullComparison = false
+    ) {
         $phpExcel = $this->getPhpExcel();
         $phpExcel->setActiveSheetIndex(0);
 
         if ($this->isAssoc(reset($data))) {
-            $phpExcel->getActiveSheet()->fromArray(array_keys(reset($data)), null, 'A1');
-            $phpExcel->getActiveSheet()->fromArray($data, null, 'A2');
+            $phpExcel->getActiveSheet()->fromArray(array_keys(reset($data)), null, 'A1', $strictNullComparison);
+            $phpExcel->getActiveSheet()->fromArray($data, null, 'A2', $strictNullComparison);
         } else {
-            $phpExcel->getActiveSheet()->fromArray($data, null, 'A1');
+            $phpExcel->getActiveSheet()->fromArray($data, null, 'A1', $strictNullComparison);
         }
 
         $filename = $filename . '.' . $this->getExtension($format);
@@ -91,7 +101,7 @@ class PhpExcel
             $objWriter->setDelimiter($delimiter);
         }
 
-        if (! (empty($objWriter)) && $objWriter instanceof \PHPExcel_Writer_IWriter) {
+        if (!(empty($objWriter)) && $objWriter instanceof \PHPExcel_Writer_IWriter) {
             $objWriter->save('php://output');
         }
         exit;
