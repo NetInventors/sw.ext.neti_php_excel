@@ -1,7 +1,9 @@
 <?php
 /**
  * @copyright  Copyright (c) 2016, Net Inventors GmbH
+ *
  * @category   Shopware
+ *
  * @author     rubyc
  */
 
@@ -13,7 +15,7 @@ class PhpExcel
     const FORMAT_CSV   = 2;
 
     /**
-     * @var \PHPExcel|boolean
+     * @var \PHPExcel|bool
      */
     protected $phpExcel;
 
@@ -23,12 +25,12 @@ class PhpExcel
     public function getPhpExcel()
     {
         if (null === $this->phpExcel) {
-            if (! class_exists('PHPExcel')) {
+            if (!class_exists('PHPExcel')) {
                 require_once __DIR__ . '/../vendor/phpoffice/phpexcel/Classes/PHPExcel.php';
             }
 
             $this->phpExcel = new \PHPExcel();
-        } elseif (! $this->phpExcel instanceof \PHPExcel) {
+        } elseif (!$this->phpExcel instanceof \PHPExcel) {
             $this->phpExcel = false;
         }
 
@@ -40,18 +42,19 @@ class PhpExcel
      * The quality of the result depends on the contained values in the first row, it might nox be correct in any case.
      *
      * @param string $csvFile
+     *
      * @return string
      */
     public function detectDelimiter($csvFile)
     {
         $delimiters = [
-            ';' => 0,
-            ',' => 0,
+            ';'  => 0,
+            ','  => 0,
             "\t" => 0,
-            "|" => 0
+            '|'  => 0,
         ];
 
-        $handle = fopen($csvFile, "r");
+        $handle    = fopen($csvFile, 'r');
         $firstLine = fgets($handle);
         fclose($handle);
         foreach ($delimiters as $delimiter => &$count) {
@@ -62,23 +65,33 @@ class PhpExcel
     }
 
     /**
-     * @param array $data
-     * If $data contains an associative array, the keys will be set as headlines in the first row.
+     * @param array  $data
+     *                                     If $data contains an associative array, the keys will be set as headlines in the first row.
      * @param string $filename
-     * @param int $format
-     * self::FORMAT_CSV or self::FORMAT_EXCEL
+     * @param int    $format
+     *                                     self::FORMAT_CSV or self::FORMAT_EXCEL
      * @param string $delimiter
+     * @param bool   $strictNullComparison
+     *
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
      */
-    public function exportFunction($data, $filename, $format = self::FORMAT_CSV, $delimiter = ',')
-    {
+    public function exportFunction(
+        $data,
+        $filename,
+        $format = self::FORMAT_CSV,
+        $delimiter = ',',
+        $strictNullComparison = false
+    ) {
         $phpExcel = $this->getPhpExcel();
         $phpExcel->setActiveSheetIndex(0);
 
         if ($this->isAssoc(reset($data))) {
-            $phpExcel->getActiveSheet()->fromArray(array_keys(reset($data)), null, 'A1');
-            $phpExcel->getActiveSheet()->fromArray($data, null, 'A2');
+            $phpExcel->getActiveSheet()->fromArray(array_keys(reset($data)), null, 'A1', $strictNullComparison);
+            $phpExcel->getActiveSheet()->fromArray($data, null, 'A2', $strictNullComparison);
         } else {
-            $phpExcel->getActiveSheet()->fromArray($data, null, 'A1');
+            $phpExcel->getActiveSheet()->fromArray($data, null, 'A1', $strictNullComparison);
         }
 
         $filename = $filename . '.' . $this->getExtension($format);
@@ -91,7 +104,7 @@ class PhpExcel
             $objWriter->setDelimiter($delimiter);
         }
 
-        if (! (empty($objWriter)) && $objWriter instanceof \PHPExcel_Writer_IWriter) {
+        if (!(empty($objWriter)) && $objWriter instanceof \PHPExcel_Writer_IWriter) {
             $objWriter->save('php://output');
         }
         exit;
@@ -99,18 +112,20 @@ class PhpExcel
 
     /**
      * @param string $filename
-     * @return array
+     *
      * @throws \Exception
+     *
+     * @return array
      */
     public function getArrayFromFile($filename)
     {
-        if (! is_readable($filename)) {
+        if (!is_readable($filename)) {
             throw new \Exception('File does not exist or is not readable: ' . $filename);
         }
 
         $this->getPhpExcel();
         $inputFileType = \PHPExcel_IOFactory::identify($filename);
-        $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+        $objReader     = \PHPExcel_IOFactory::createReader($inputFileType);
 
         // detect and set delimiter
         if ('CSV' === $inputFileType) {
@@ -125,12 +140,12 @@ class PhpExcel
 
         $rows = [];
         foreach ($worksheet->getRowIterator() as $rowData) {
-            $row = [];
+            $row          = [];
             $cellIterator = $rowData->getCellIterator();
             $cellIterator->setIterateOnlyExistingCells(false); // Loop all cells, even if it is not set
             foreach ($cellIterator as $cell) {
                 /** @var \PHPExcel_Cell $cell */
-                if (! is_null($cell)) {
+                if (!is_null($cell)) {
                     $row[] = $cell->getValue();
                 }
             }
@@ -145,11 +160,12 @@ class PhpExcel
      * The keys will be taken from the first row of the $rows array.
      *
      * @param array $rows
+     *
      * @return array
      */
     public function createAssociativeArray($rows)
     {
-        $results = [];
+        $results  = [];
         $firstRow = true;
         foreach ($rows as $row) {
             if ($firstRow) {
@@ -173,7 +189,8 @@ class PhpExcel
 
     /**
      * @param array $arr
-     * @return boolean
+     *
+     * @return bool
      */
     private function isAssoc(array $arr)
     {
@@ -186,6 +203,7 @@ class PhpExcel
 
     /**
      * @param int $format
+     *
      * @return string
      */
     private function getExtension($format)
@@ -202,6 +220,7 @@ class PhpExcel
 
     /**
      * @param int $format
+     *
      * @return string
      */
     private function getWriterType($format)

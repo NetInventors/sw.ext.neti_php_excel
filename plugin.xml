@@ -5,10 +5,15 @@
     <label lang="de">PHPExcel-Bibliothek</label>
     <label lang="en">PHPExcel Library</label>
 
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <link>http://www.shopinventors.de</link>
     <author>Net Inventors GmbH</author>
     <compatibility minVersion="5.2.6"/>
+
+    <changelog version="1.0.3">
+        <changes lang="de"><![CDATA[Interne Anpassungen]]></changes>
+        <changes lang="en"><![CDATA[Internal changes]]></changes>
+    </changelog>
 
     <changelog version="1.0.2">
         <changes lang="de"><![CDATA[Bugfixes]]></changes>
