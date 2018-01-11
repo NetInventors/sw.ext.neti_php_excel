@@ -111,21 +111,27 @@ class PhpExcel
     }
 
     /**
-     * @param string $filename
-     *
-     * @throws \Exception
+     * @param string      $filename
+     * @param string|null $inputFileType - is no type is suplied, PhpExcel will try to guess it
      *
      * @return array
+     * @throws \Exception
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
      */
-    public function getArrayFromFile($filename)
+    public function getArrayFromFile($filename, $inputFileType = null)
     {
         if (!is_readable($filename)) {
             throw new \Exception('File does not exist or is not readable: ' . $filename);
         }
 
         $this->getPhpExcel();
-        $inputFileType = \PHPExcel_IOFactory::identify($filename);
-        $objReader     = \PHPExcel_IOFactory::createReader($inputFileType);
+
+        if (null === $inputFileType) {
+            $inputFileType = \PHPExcel_IOFactory::identify($filename);
+        }
+
+        $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
 
         // detect and set delimiter
         if ('CSV' === $inputFileType) {
