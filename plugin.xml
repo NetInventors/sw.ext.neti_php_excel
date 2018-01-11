@@ -5,10 +5,19 @@
     <label lang="de">PHPExcel-Bibliothek</label>
     <label lang="en">PHPExcel Library</label>
 
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <link>http://www.shopinventors.de</link>
     <author>Net Inventors GmbH</author>
     <compatibility minVersion="5.2.6"/>
+
+    <changelog version="1.1.0">
+        <changes lang="de"><![CDATA[
+[#28062] Der InputFileType beim Lesen einer Datei kann jetzt überschrieben werden, anstatt sich auf die Erkennung von PhpExcel zu verlassen.
+]]></changes>
+        <changes lang="en"><![CDATA[
+[#28062] Added option to override InputFileType instead of relying on PhpExcel type detection.
+]]></changes>
+    </changelog>
 
     <changelog version="1.0.3">
         <changes lang="de"><![CDATA[Interne Anpassungen]]></changes>
