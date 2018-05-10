@@ -1,9 +1,13 @@
 {
     "name": "net-inventors/neti-php-excel",
     "description": "Shopware Library-Plugin for phpExcel",
-    "type": "project",
+    "type": "shopware-plugin",
+    "extra": {
+        "installer-name": "NetiPhpExcel"
+    },
     "require": {
-        "phpoffice/phpexcel": "^1.8"
+        "phpoffice/phpexcel": "^1.8",
+        "composer/installers": "~1.0"
     },
     "license": "MIT",
     "authors": [
