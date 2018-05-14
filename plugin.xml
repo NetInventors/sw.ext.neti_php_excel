@@ -5,10 +5,19 @@
     <label lang="de">PHPExcel-Bibliothek</label>
     <label lang="en">PHPExcel Library</label>
 
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <link>http://www.shopinventors.de</link>
     <author>Net Inventors GmbH</author>
     <compatibility minVersion="5.2.6"/>
+
+    <changelog version="1.2.0">
+        <changes lang="de"><![CDATA[
+[#GitHub #7] Das Plugin kann nun über Composer installiert werden: "composer create-project net-inventors/neti-php-excel"
+]]></changes>
+        <changes lang="en"><![CDATA[
+[#GitHub #7] The plugin can now be installed through composer: "composer create-project net-inventors/neti-php-excel"
+]]></changes>
+    </changelog>
 
     <changelog version="1.1.0">
         <changes lang="de"><![CDATA[
