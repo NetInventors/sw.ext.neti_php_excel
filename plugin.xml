@@ -12,10 +12,10 @@
 
     <changelog version="1.2.0">
         <changes lang="de"><![CDATA[
-[#GitHub #7] Das Plugin kann nun über Composer installiert werden: "composer create-project net-inventors/neti-php-excel"
+[#GitHub #7] Das Plugin kann nun über Composer installiert werden: "composer require net-inventors/neti-php-excel"
 ]]></changes>
         <changes lang="en"><![CDATA[
-[#GitHub #7] The plugin can now be installed through composer: "composer create-project net-inventors/neti-php-excel"
+[#GitHub #7] The plugin can now be installed through composer: "composer require net-inventors/neti-php-excel"
 ]]></changes>
     </changelog>
 
