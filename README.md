@@ -19,6 +19,9 @@
 ## Install 
 We recommend installing the zip package either from [here](https://github.com/NetInventors/sw.ext.neti_phpexcel/releases/latest) or the [Shopware Community Store](http://store.shopware.com/detail/index/sArticle/163296)
 
+Starting with version 1.2.0, you can also install the plugin via composer:
+`composer create-project net-inventors/neti-php-excel`
+
 **If you want to checkout from git be sure to name the directory "NetiPhpExcel" and run `composer install` before using the plugin.**
 
 ## How to use / Example
