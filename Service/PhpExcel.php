@@ -114,10 +114,11 @@ class PhpExcel
      * @param string      $filename
      * @param string|null $inputFileType - is no type is suplied, PhpExcel will try to guess it
      *
-     * @return array
      * @throws \Exception
      * @throws \PHPExcel_Exception
      * @throws \PHPExcel_Reader_Exception
+     *
+     * @return array
      */
     public function getArrayFromFile($filename, $inputFileType = null)
     {
