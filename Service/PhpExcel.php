@@ -104,7 +104,7 @@ class PhpExcel
             $objWriter->setDelimiter($delimiter);
         }
 
-        if (!(empty($objWriter)) && $objWriter instanceof \PHPExcel_Writer_IWriter) {
+        if ($objWriter instanceof \PHPExcel_Writer_IWriter) {
             $objWriter->save('php://output');
         }
         exit;
