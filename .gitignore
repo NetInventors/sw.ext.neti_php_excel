@@ -1,2 +1,6 @@
 .idea
 /vendor/
+
+/.build/plugins/
+/.build/tmp/
+/.build/update/
