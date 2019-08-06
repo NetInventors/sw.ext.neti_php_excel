@@ -9,7 +9,7 @@
 * [Plugin in shopware store](http://store.shopware.com/detail/index/sArticle/163296)
 
 ## Requirements:
-* Shopware version >= 5.2.6
+* Shopware version >= 5.6.0
 
 **If you want to checkout from git be sure to run `composer install` before using the plugin.**
 
@@ -31,7 +31,7 @@ We highly appreciate if you want to add further functions and fix issues. Just f
 For more information about contributing to this plugin, please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License & Copyright
-Copyright (c) 2016, Net Inventors - Agentur für digitale Medien GmbH
+Copyright (c) 2019, Net Inventors - Agentur für digitale Medien GmbH
 
 Please see [License file](LICENSE) for more information.
 

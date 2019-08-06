@@ -5,10 +5,19 @@
     <label lang="de">PHPExcel-Bibliothek</label>
     <label lang="en">PHPExcel Library</label>
 
-    <version>2.0.0</version>
-    <link>http://www.shopinventors.de</link>
+    <version>3.0.0</version>
+    <link>http://www.netinventors.de</link>
     <author>Net Inventors GmbH</author>
-    <compatibility minVersion="5.5.0"/>
+    <compatibility minVersion="5.6.0"/>
+    
+    <changelog version="3.0.0">
+        <changes lang="de"><![CDATA[
+[#32192] Release für SW 5.6
+]]></changes>
+        <changes lang="en"><![CDATA[
+[#32192] Release for SW 5.6
+]]></changes>
+    </changelog>
 
     <changelog version="2.0.0">
         <changes lang="de"><![CDATA[
